@@ -49,54 +49,7 @@ body{
 }
 
 /* Navigation */
-/*
-#menu_principal
-{
-	margin-left: 4%;
-	background-color: #595959;
-	text-align: center;
-    max-width: 95%;
-	color: white;
-}
 
-#accueil,  #destination, #materiel, #media, #boutique, #contact, #don
-{
-	display: block;
-	text-align: center;
-	color: white;
-}
-
-nav
-{
-    display: inline-block;
-	max-width: 100%;
-}
-
-nav ul
-{
-    list-style-type: none;
-}
-
-nav li
-{
-    display: inline-block;
-    margin-right: 15px;
-}
-
-nav a
-{
-    font-size: 1.3em;
-    color: #181818;
-    padding-bottom: 3px;
-    text-decoration: none;
-}
-
-nav a:hover
-{
-    color: #760001;
-    border-bottom: 3px solid #760001;
-}
-*/
 #blocPage
 {
 	margin-left: 15%;

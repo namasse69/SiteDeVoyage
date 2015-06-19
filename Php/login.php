@@ -4,6 +4,6 @@
 
  $db = new dbConnect();
  
- $db->GetUserByName($_GET['name'],$_GET['pass']);
+ $db->GetUserByName($_GET['Mail'],$_GET['Pass']);
 
 ?>

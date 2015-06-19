@@ -8,7 +8,6 @@
 		<link rel="stylesheet" href="Bootstrap/bootstrap-theme.min.css" />
 		<!-- CSS personnel -->
 		<link rel="stylesheet" href="css/Base.css" />
-		<link rel="stylesheet" href="css/Accueil.css" />
 		<link rel="stylesheet" href="css/Footer.css" />
 		<!-- Bootstrap script-->
 		<script src="Bootstrap/bootstrap.min.js" ></script>
