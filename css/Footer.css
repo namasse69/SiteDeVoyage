@@ -1,0 +1,35 @@
+footer
+{
+	background-color: #bdc3c7;
+	Border: 1px solid black;
+	font-size: 20px;
+	border-style: thin;
+	border-width: 1px;
+	width: 1300px;
+	height: 150px;
+	Margin-left: 142px;
+	Margin-top: 20px;
+	text-align: center;
+}
+
+p
+{
+	color: black;
+}
+
+#fb, #twitter
+{
+	margin-top: 30px;
+}
+
+#facebook, #twit
+{
+	display: inline-block;
+	margin-left:10px;
+}
+
+#auteur, #reseau_social, #adresse
+{
+	display: inline-block;
+	margin-left: 10px;
+}

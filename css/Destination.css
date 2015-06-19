@@ -1,0 +1,23 @@
+/* Définition des polices personnalisées */
+
+h1, h2
+{
+font-size : 20px;
+text-decoration: underline;
+text-align: center;
+}
+
+p
+{
+font-size: 16px;
+}
+
+#listeArticles
+{
+margin-right : 300px
+}
+
+#banniere
+{
+text-align:center;
+}
