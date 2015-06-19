@@ -6,7 +6,7 @@ class dbConnect{
 	private $_host = "localhost";
 	private $_login = "root";
 	private $_password = "";
-	private $_dbname = "sitedevoyage";
+	private $_dbname = "walley";
 	
 	function __construct()
 	{
@@ -14,9 +14,12 @@ class dbConnect{
 	}
 	
 	
+	/**
+	 * 
+	 */
 	function getHost(){
 		return $this->_host;
-	} 
+	}
 	
 	
 	function setHost($host){
@@ -25,22 +28,24 @@ class dbConnect{
 	
 	
 	
-	function GetUserByName($Mail, $Pass)
+	function GetUserByName($name, $pass)
 	{
-		$req = $this->_dbConnect->prepare ('SELECT * FROM utilisateur  WHERE userMail =:Mail');
+		$req = $this->_dbConnect->prepare ('SELECT * FROM utilisateur  WHERE name =:name');
 
 		$req->execute(
 			array(
-					'Mail' => $Mail
+					'name' => $name
 				)
 			);
 			$response = $req->fetch();
+			var_dump($req);
 						
 			if ($response){
-						if ($response['userPass'] == $Pass)
+						if ($response['pass'] == $pass)
 						{
-							echo "Bienvenue ".$response['userFirstname']." ".$response['userName'];
-
+							echo "Bienvenue ".$response['name'];
+							//header("Location: acceuil.php");
+							
 						}else{
 							echo "Mauvais mot de passe";
 						}
@@ -49,31 +54,6 @@ class dbConnect{
 				echo "mauvais identifiant";
 			}
 	}
-	
-	function SetInscription($userName, $userFirstname, $userPseudo, $userMail,  $userPass)
-	{
-	try{
-		$values =  array(
-					'name'=> $userName,
-					'firstname'=> $userFirstname,
-					'pseudo' => $userPseudo,
-					'mail'=> $userMail,
-					'pass'=> $userPass
-				);
-				
-		$req = $this->_dbConnect->prepare("INSERT INTO `utilisateur` (`userName`, `userFirstname`, `userPseudo`, `userMail`, `userPass`) VALUES (:name, :firstname, :pseudo, :mail, :pass)");
-		$req->execute(
-			$values
-			);
-		$response = $req->fetch();
-		
-		var_dump($req);
-		
-		var_dump($values);
-		
-		}catch(\EXCEPTION $e){
-			echo $e->getMessage();
-		}
-	}
+
 }
 

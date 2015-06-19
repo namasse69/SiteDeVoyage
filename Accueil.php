@@ -14,13 +14,14 @@
 		<!-- Bibliothèque JQUERY-->
 		<script src="js/jquery-2.1.4.min.js" > </script>
 		<!-- JS Personnel -->
-		<script src="js/menu.js" > </script>
+		<script src="js/menu.js"> </script>
 		
 			<?php include("Header.php"); ?>
 		
 		<body>
 				<section>
 					<div id="blocPage" >
+						
 						<div id="bloc_article" >
 								<div id="article1" >
 									<p>  Bonjour,

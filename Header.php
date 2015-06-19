@@ -8,8 +8,18 @@
 						<div id="baniere">
 							 <img src="img/logo.jpg" alt="Logo de The monarch's travel " id="logo" /> 
 						</div>
-
+						
+						<div id = "login">
+						<form action="Php/login.php" method="get">
+						  Username: <input class="txt" type="text" name="name"><br>
+						  Pass:         <input class="txt" type="text" name="pass"><br>
+						  <input class="txt" type="submit" value="connexion">
+						</form> 
+			</div>
+						
 		</header>
+			
+			
 			
 		<div id="menu_principal">    
 			<nav>
