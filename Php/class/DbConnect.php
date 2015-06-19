@@ -27,25 +27,22 @@ class dbConnect{
 	}
 	
 	
-	
-	function GetUserByName($name, $pass)
+	function GetUserByName($Mail, $Pass)
 	{
-		$req = $this->_dbConnect->prepare ('SELECT * FROM utilisateur  WHERE name =:name');
+		$req = $this->_dbConnect->prepare ('SELECT * FROM inscription  WHERE userMail =:Mail');
 
 		$req->execute(
 			array(
-					'name' => $name
+					'Mail' => $Mail
 				)
 			);
 			$response = $req->fetch();
-			var_dump($req);
 						
 			if ($response){
-						if ($response['pass'] == $pass)
+						if ($response['userPass'] == $Pass)
 						{
-							echo "Bienvenue ".$response['name'];
-							//header("Location: acceuil.php");
-							
+							echo "Bienvenue ".$response['userFirstname']." ".$response['userName'];
+
 						}else{
 							echo "Mauvais mot de passe";
 						}
@@ -54,6 +51,30 @@ class dbConnect{
 				echo "mauvais identifiant";
 			}
 	}
-
+	
+	function SetInscription($userName, $userFirstname,$userPseudo, $userMail,  $userPass)
+	{
+	try{
+		$values =  array(
+					'name'=> $userName,
+					'firstname'=> $userFirstname,
+					'pseudo'=> $userPseudo,
+					'mail'=> $userMail,
+					'pass'=> $userPass
+				);
+				
+		$req = $this->_dbConnect->prepare("INSERT INTO `inscription` (`userName`, `userFirstname`, `userMail`, `userPass`) VALUES (:name, :firstname, :mail, :pass)");
+		$req->execute(
+			$values
+			);
+		$response = $req->fetch();
+		
+		var_dump($req);
+		
+		var_dump($values);
+		
+		}catch(\EXCEPTION $e){
+			echo $e->getMessage();
+		}
+	}
 }
-
