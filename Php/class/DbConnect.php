@@ -3,10 +3,10 @@
 class dbConnect{
 
 	private $_dbConnect = null;
-	private $_host = "localhost";
-	private $_login = "root";
-	private $_password = "";
-	private $_dbname = "walley";
+	private $host = "mysql.hostinger.fr";
+	private $login = "u318139941_pasha";
+	private $password = "Chrisol69";
+	private $dbname = "u318139941_travl";
 	
 	function __construct()
 	{
