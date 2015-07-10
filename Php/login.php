@@ -1,9 +1,9 @@
 <?php
 
- include ("class/DbConnect.php");
+	 include ("class/DbConnect.php");
 
- $db = new dbConnect();
- 
- $db->GetUserByName($_GET['name'],$_GET['pass']);
+	 $db = new dbConnect();
+	 
+	 $db->GetUserByName(isset($_POST['mail']),isset($_POST['pass']));
 
 ?>

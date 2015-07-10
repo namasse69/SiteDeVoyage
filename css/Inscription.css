@@ -1,0 +1,31 @@
+#modal 
+{
+	text-align: center;
+	margin: auto;
+	margin-top: 5%;
+	background-color: white;
+	width: 60%;
+	height: 320px;
+}
+
+#myForm
+{
+	text-align: center;
+	display: inline-block;
+}
+
+#formulaire
+{
+	text-align: right;
+	margin-top: 7%;
+}
+
+#inscript
+{
+	text-align: center;
+}
+
+td
+{
+	padding:  5px;
+}

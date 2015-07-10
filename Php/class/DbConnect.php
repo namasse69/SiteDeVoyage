@@ -8,7 +8,7 @@ class dbConnect{
 	private $password = "Chrisol69";
 	private $dbname = "u318139941_travl";
 	
-	function __construct()
+	function _construct()
 	{
 		$this->_dbConnect = new PDO("mysql:host=".$this->_host.";dbname=".$this->_dbname."", $this->_login, $this->_password);
 	}
@@ -28,23 +28,25 @@ class dbConnect{
 	
 	
 	
-	function GetUserByName($name, $pass)
+	function GetUserByName($mail, $pass)
 	{
-		$req = $this->_dbConnect->prepare ('SELECT * FROM utilisateur  WHERE name =:name');
-
+	try{
+		$values = array(
+					'mail' => $mail,
+				);
+				
+		$req = $this->_dbConnect->prepare ('SELECT * FROM utilisateur  WHERE userMail = :mail');
 		$req->execute(
-			array(
-					'name' => $name
-				)
+			$values
 			);
+			
 			$response = $req->fetch();
 			var_dump($req);
 						
 			if ($response){
-						if ($response['pass'] == $pass)
+						if ($response['userPass'] == $pass)
 						{
-							echo "Bienvenue ".$response['name'];
-							//header("Location: acceuil.php");
+							echo "Bienvenue ".$response['userName'];
 							
 						}else{
 							echo "Mauvais mot de passe";
@@ -53,7 +55,35 @@ class dbConnect{
 
 				echo "mauvais identifiant";
 			}
+	}catch(\EXCEPTION $e){
+			echo $e->getMessage();
+		}
+	
+	
+	function SetInscription($userName, $userFirstname, $userPseudo, $userMail,  $userPass)
+	{
+	try{
+		$values =  array(
+					'name'=> $userName,
+					'firstname'=> $userFirstname,
+					'pseudo' => $userPseudo,
+					'mail'=> $userMail,
+					'pass'=> $userPass
+				);
+				
+		$req = $this->_dbConnect->prepare("INSERT INTO `inscription` (`userName`, `userFirstname`,`userPseudo`, `userMail`, `userPass`) VALUES (:name, :firstname, :pseudo, :mail, :pass)");
+		$req->execute(
+			$values
+			);
+		$response = $req->fetch();
+		
+		var_dump($req);
+		
+		var_dump($values);
+		
+		}catch(\EXCEPTION $e){
+			echo $e->getMessage();
+		}
 	}
-
 }
-
+}
