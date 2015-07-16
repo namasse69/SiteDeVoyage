@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="css/Default.css" />
+		<meta charset="utf8"/>
+		<meta name="viewport" content="width = device-width" />		
+		<!-- Boostrap Css -->
+		<link rel="stylesheet" href="Bootstrap/bootstrap.min.css" />
+		<link rel="stylesheet" href="Bootstrap/bootstrap-theme.min.css" />
+		<!-- CSS personnel -->
+		<link rel="stylesheet" href="css/Base.css" />
 		<link rel="stylesheet" href="css/Destination.css" />
 		<link rel="stylesheet" href="css/Header.css" />
-		<link rel="stylesheet" href="css/Footer.css" /> 
-    </head>
+		<!-- Bootstrap script-->
+		<script src="Bootstrap/bootstrap.min.js" ></script>
+		<!-- Bibliothèque JQUERY-->
+		<script src="js/jquery-2.1.4.min.js" > </script>
+		<!-- JS Personnel -->
+		<script src="js/menu.js"> </script>
 
     <body>
 			<?php include("Header.php"); ?> 
@@ -18,7 +27,7 @@
 						<h1> Les destinations </h1>
 							<div id= "article 1" >
 									<div id = "banniere">
-										<img src="img/traitNoir.png" alt="" />
+										<img src="img/traitNoir.png" alt="" id="separation" />
 										<h2> Santorin </h2>
 										<a href="santorin.php"><img src="img/santorinBanniere.jpg" alt="Santorin" /></a>
 									</div>

@@ -3,23 +3,20 @@
 class dbConnect{
 
 	private $_dbConnect = null;
-	private $host = "mysql.hostinger.fr";
-	private $login = "u318139941_pasha";
-	private $password = "Chrisol69";
-	private $dbname = "u318139941_travl";
+	private $_host = "localhost";
+	private $_login = "root";
+	private $_password = "";
+	private $_dbname = "sitedevoyage";
 	
-	function _construct()
+	function __construct()
 	{
 		$this->_dbConnect = new PDO("mysql:host=".$this->_host.";dbname=".$this->_dbname."", $this->_login, $this->_password);
 	}
 	
 	
-	/**
-	 * 
-	 */
 	function getHost(){
 		return $this->_host;
-	}
+	} 
 	
 	
 	function setHost($host){
@@ -27,44 +24,26 @@ class dbConnect{
 	}
 	
 	
-<<<<<<< HEAD
 	
-	function GetUserByName($mail, $pass)
+	function GetUserByMail($Mail, $Pass)
 	{
-	try{
-		$values = array(
-					'mail' => $mail,
-				);
-				
-		$req = $this->_dbConnect->prepare ('SELECT * FROM utilisateur  WHERE userMail = :mail');
-		$req->execute(
-			$values
-=======
-	function GetUserByName($Mail, $Pass)
-	{
-		$req = $this->_dbConnect->prepare ('SELECT * FROM inscription  WHERE userMail =:Mail');
+		$req = $this->_dbConnect->prepare ('SELECT * FROM utilisateur  WHERE userMail =:Mail');
 
 		$req->execute(
 			array(
 					'Mail' => $Mail
 				)
->>>>>>> ccc177679a1a343a546338ca6a37a5c88cb73c32
 			);
-			
 			$response = $req->fetch();
 						
 			if ($response){
-<<<<<<< HEAD
-						if ($response['userPass'] == $pass)
-						{
-							echo "Bienvenue ".$response['userName'];
-							
-=======
-						if ($response['userPass'] == $Pass)
+						if ($response['userPass'] == crypt($Pass,$Mail))
 						{
 							echo "Bienvenue ".$response['userFirstname']." ".$response['userName'];
-
->>>>>>> ccc177679a1a343a546338ca6a37a5c88cb73c32
+							session_start();
+							
+							$_SESSION['prenom'] = $response['userFirstname'];
+							$_SESSION['nom'] = $response['userName'];
 						}else{
 							echo "Mauvais mot de passe";
 						}
@@ -72,10 +51,7 @@ class dbConnect{
 
 				echo "mauvais identifiant";
 			}
-	}catch(\EXCEPTION $e){
-			echo $e->getMessage();
-		}
-	
+	}
 	
 	function SetInscription($userName, $userFirstname, $userPseudo, $userMail,  $userPass)
 	{
@@ -83,53 +59,20 @@ class dbConnect{
 		$values =  array(
 					'name'=> $userName,
 					'firstname'=> $userFirstname,
-					'pseudo' => $userPseudo,
-					'mail'=> $userMail,
-					'pass'=> $userPass
-				);
-				
-		$req = $this->_dbConnect->prepare("INSERT INTO `inscription` (`userName`, `userFirstname`,`userPseudo`, `userMail`, `userPass`) VALUES (:name, :firstname, :pseudo, :mail, :pass)");
-		$req->execute(
-			$values
-			);
-		$response = $req->fetch();
-		
-		var_dump($req);
-		
-		var_dump($values);
-		
-		}catch(\EXCEPTION $e){
-			echo $e->getMessage();
-		}
-	}
-<<<<<<< HEAD
-}
-=======
-	
-	function SetInscription($userName, $userFirstname,$userPseudo, $userMail,  $userPass)
-	{
-	try{
-		$values =  array(
-					'name'=> $userName,
-					'firstname'=> $userFirstname,
 					'pseudo'=> $userPseudo,
 					'mail'=> $userMail,
-					'pass'=> $userPass
+					'pass'=>   crypt($userPass,$userMail)
 				);
-				
-		$req = $this->_dbConnect->prepare("INSERT INTO `inscription` (`userName`, `userFirstname`, `userMail`, `userPass`) VALUES (:name, :firstname, :mail, :pass)");
+
+		$req = $this->_dbConnect->prepare("INSERT INTO utilisateur (`userName`, `userFirstname`,`userPseudo`, `userMail`, `userPass`) VALUES (:name, :firstname,:pseudo, :mail, :pass)");
 		$req->execute(
 			$values
 			);
 		$response = $req->fetch();
 		
-		var_dump($req);
-		
-		var_dump($values);
-		
 		}catch(\EXCEPTION $e){
 			echo $e->getMessage();
 		}
 	}
->>>>>>> ccc177679a1a343a546338ca6a37a5c88cb73c32
 }
+

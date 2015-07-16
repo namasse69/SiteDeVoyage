@@ -19,7 +19,7 @@
 							<div id= "article 1" >
 									<h1> Santorin </h1>
 									<div id = "banniere">
-										<img src="images/santorinBanniere.jpg" alt="Santorin" />
+										<img src="img/santorinBanniere.jpg" alt="Santorin" />
 									</div>
 									<div id = "description">
 										<p> Santorin, en grec Σαντορίνη / Santoríni, aussi appelée Théra ou Thíra, Θήρα / Thíra, est une île de Grèce située en mer Égée. Elle est l'île la plus grande et la plus peuplée d'un petit archipel volcanique comprenant quatre autres îles, auquel on donne parfois son nom (voir archipel de Santorin).

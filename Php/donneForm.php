@@ -1,10 +1,8 @@
 <?php
-
-	 include ("class/DbConnect.php");
-
-	$db = new dbConnect();
- 
-	$db->SetInscription($_POST['userName'],$_POST['userFirstname'], $_POST['userPseudo'],$_POST['userMail'],$_POST['userPass']);
-
+	include ("class/validation.php");
+	
+	$vald = new validation();
+	$vald->validationInscription($_POST['userMail'],$_POST['userMailConfirm'],$_POST['userPass'],$_POST['userPassConfirm']);
 ?>
 
+	

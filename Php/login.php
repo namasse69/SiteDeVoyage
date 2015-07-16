@@ -4,6 +4,6 @@
 
 	 $db = new dbConnect();
 	 
-	 $db->GetUserByName(isset($_POST['mail']),isset($_POST['pass']));
+	 $db->GetUserByMail($_POST['mail'],$_POST['pass']);
 
 ?>
