@@ -16,6 +16,7 @@
 						
 						<div id="bloc_article" >
 								<div id="article1" >
+							
 									<p>  Bonjour,
 										Ce site a été réalisé pour notre association VOYAGER FACILE afin de permettre aux passionnés de voyage de pouvoir être conseillés au mieux. 
 										Nous souhaitons avant tous regroupé le plus d’informations à propos des destinations, du matériel nécessaire et de nombreux conseils pour vous aider à préparer au mieux votre voyage. 

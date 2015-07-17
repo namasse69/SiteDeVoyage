@@ -68,7 +68,29 @@ class dbConnect{
 		$req->execute(
 			$values
 			);
-		$response = $req->fetch();	
+		
+
+		
+		$req2 = $this->_dbConnect->prepare ('SELECT * FROM utilisateur  WHERE userMail =:Mail');
+		$req2->execute(
+			array(
+					'Mail' => $userMail
+				)
+			);
+			$response = $req2->fetch();
+			
+		if ($response)
+		{
+		
+		session_start();
+		
+		$_SESSION['prenom'] = $response['userFirstname'];
+		$_SESSION['nom'] = $response['userName'];
+		
+		}
+
+
+		
 		
 		}catch(\EXCEPTION $e){
 			echo $e->getMessage();

@@ -26,7 +26,7 @@
 			<?php include("php/donneForm.php"); ?>
 			
 			<div id="modal">
-				<form id="myForm" action="/projects/SiteDeVoyage/PageInscription.php" method="post"> 
+				<form id="myForm" action="PageInscription.php" method="post"> 
 					<table id="formulaire">
 						<tr> 
 							<td> Nom: </td>

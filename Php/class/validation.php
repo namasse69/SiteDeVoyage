@@ -22,11 +22,8 @@
 					
 					$db = new dbConnect();
 					$db->SetInscription($_POST['userName'],$_POST['userFirstname'],$_POST['userPseudo'],$_POST['userMail'],$_POST['userPass']);
-					
-						$_SESSION['prenom'] = $response['userFirstname'];
-						$_SESSION['nom'] = $response['userName'];
-												
-					header('Location: Accueil.php');  
+						
+					header('Location: Accueil.php');
 			}	
 		}
 	}
