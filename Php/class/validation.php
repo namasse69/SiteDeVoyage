@@ -8,27 +8,25 @@
 			{
 				$_POST['modalConfirm'] = "L'adresse mail ne correspond pas a l'adresse de confirmation";
 				
-				include ("../modalConfirm.php");
+				include ("modalConfirm.php");
 			}
 			elseif ($pass != $passConfirm)
 			{
 				$_POST['modalConfirm'] =  "Le mot de pass ne correspond pas au mot de pass de confirmation";
 				
-					include ("../modalConfirm.php");
+					include ("modalConfirm.php");
 			}
 			else
 			{
-					include ("../DbConnect.php");
+					include ("DbConnect.php");
 					
 					$db = new dbConnect();
 					$db->SetInscription($_POST['userName'],$_POST['userFirstname'],$_POST['userPseudo'],$_POST['userMail'],$_POST['userPass']);
-
 					
-					$_POST['modalConfirm'] = "Inscription validée !";
-					
-					include ("class/modalConfirm.php");
-					
-
+						$_SESSION['prenom'] = $response['userFirstname'];
+						$_SESSION['nom'] = $response['userName'];
+												
+					header('Location: Accueil.php');  
 			}	
 		}
 	}

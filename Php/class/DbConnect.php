@@ -68,7 +68,7 @@ class dbConnect{
 		$req->execute(
 			$values
 			);
-		$response = $req->fetch();
+		$response = $req->fetch();	
 		
 		}catch(\EXCEPTION $e){
 			echo $e->getMessage();

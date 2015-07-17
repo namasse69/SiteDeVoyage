@@ -21,8 +21,12 @@
 			<?php include("Header.php"); ?>
 			
 		<body>
+		
+		
+			<?php include("php/donneForm.php"); ?>
+			
 			<div id="modal">
-				<form id="myForm" action="php/donneForm.php" method="post"> 
+				<form id="myForm" action="/projects/SiteDeVoyage/PageInscription.php" method="post"> 
 					<table id="formulaire">
 						<tr> 
 							<td> Nom: </td>
