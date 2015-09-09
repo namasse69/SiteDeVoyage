@@ -1,25 +1,18 @@
+<?php
+	session_start(); 
+	include ("generateHead.php");
+?>
 <!DOCTYPE html>
 <html>
     <head>
-		<meta charset="utf8"/>
-		<meta name="viewport" content="width = device-width" />		
-		<!-- Boostrap Css -->
-		<link rel="stylesheet" href="Bootstrap/bootstrap.min.css" />
-		<link rel="stylesheet" href="Bootstrap/bootstrap-theme.min.css" />
-		<!-- CSS personnel -->
-		<link rel="stylesheet" href="css/Base.css" />
-		<link rel="stylesheet" href="css/Destination.css" />
-		<link rel="stylesheet" href="css/Header.css" />
-		<!-- Bootstrap script-->
-		<script src="Bootstrap/bootstrap.min.js" ></script>
-		<!-- Bibliothèque JQUERY-->
-		<script src="js/jquery-2.1.4.min.js" > </script>
-		<!-- JS Personnel -->
-		<script src="js/menu.js"> </script>
+	<?php 
+		$head = new generateHead();
+		$head->generate("destination");
+		include ("php/article.php");
+	?>
+	</head>
 
     <body>
-			<?php include("Header.php"); ?> 
-		
 				<section>
 					<div id="blocPage" >
 					
@@ -29,10 +22,13 @@
 									<div id = "banniere">
 										<img src="img/traitNoir.png" alt="" id="separation" />
 										<h2> Santorin </h2>
-										<a href="santorin.php"><img src="img/santorinBanniere.jpg" alt="Santorin" /></a>
+										<a href="
+										santorin.php"><img src="img/santorinBanniere.jpg" alt="Santorin" /></a>
 									</div>
 									<div id = "description">
-										<p> Santorin, en grec Σαντορίνη / Santoríni, aussi appelée Théra ou Thíra, Θήρα / Thíra, est une île de Grèce située en mer Égée. Elle est l'île la plus grande et la plus peuplée d'un petit archipel volcanique comprenant quatre autres îles, auquel on donne parfois son nom (voir archipel de Santorin).</br></br>
+										<?php 
+										$value = $db->getResume("Santorin");
+										echo $value; ?>
 									</div>
 							</div>
 							<div id= "article 2" >

@@ -96,5 +96,6 @@ class dbConnect{
 			echo $e->getMessage();
 		}
 	}
+	
 }
 
